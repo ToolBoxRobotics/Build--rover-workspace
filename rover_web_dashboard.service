@@ -1,0 +1,14 @@
+[Unit]
+Description=Rover Web Dashboard (static files server)
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/rover_dashboard/build
+ExecStart=/usr/bin/python3 -m http.server 8000
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
