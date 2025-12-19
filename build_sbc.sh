@@ -72,11 +72,6 @@ catkin_make -DCMAKE_BUILD_TYPE=Release 2>&1 | tee -a "$LOG"
 
 echo ""
 echo -e "${GREEN}=== Build completed successfully on Pi SBC ===${NC}"
-? 2. build_pc.sh ? PC simulation + MoveIt build script
-Save as:
-~/rover_ws/build_pc.sh
 
-#!/bin/bash
-set -e
 
 
