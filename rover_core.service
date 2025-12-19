@@ -1,0 +1,17 @@
+[Unit]
+Description=Rover Core Stack (ROS bringup)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi
+Environment="ROS_MASTER_URI=http://PC_IP:11311"    # CHANGE
+Environment="ROS_HOSTNAME=ROVER_IP"                # CHANGE
+ExecStart=/usr/bin/bash -lc "source /opt/ros/noetic/setup.bash && source /home/pi/catkin_ws/devel/setup.bash && roslaunch rover_bringup master_hw.launch"
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
